@@ -9,6 +9,16 @@ public class Employee {
     double salary;
     Date start;
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", start=" + start +
+                '}';
+    }
+
     public Employee(int employeeId, String name, double salary, Date start) {
         this.employeeId = employeeId;
         this.name = name;

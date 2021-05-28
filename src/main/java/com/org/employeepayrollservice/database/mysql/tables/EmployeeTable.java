@@ -38,7 +38,7 @@ public class EmployeeTable extends MySqlUtils<Employee> implements ICrud<Employe
     protected List<Employee> collectData(ResultSet resultSet) throws SQLException {
         List<Employee> employees = new ArrayList<Employee>();
         while(resultSet.next()){
-            Employee employee = new Employee(resultSet.getInt("employeeId"),
+            Employee employee = new Employee(resultSet.getInt("id"),
                     resultSet.getString("name"),
                     resultSet.getDouble("salary"),
                     resultSet.getDate("start"));
@@ -58,7 +58,7 @@ public class EmployeeTable extends MySqlUtils<Employee> implements ICrud<Employe
 
     public List<Employee> retrieve(int key){
         List<Employee> employees = new ArrayList<Employee>();
-        String selectQuery = "select * from employee_payroll where `name`="+key;
+        String selectQuery = "select * from employee_payroll where `id`="+key;
         try{
             employees = executeQuery(selectQuery);
         }catch (Exception e){
