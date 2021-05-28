@@ -68,7 +68,7 @@ public class EmployeeTable extends MySqlUtils<Employee> implements ICrud<Employe
     }
 
     public void update(int key, Employee value) {
-        String updateQuery = "UPDATE employee_payroll set `name`="+value.getName()+",`salary`="+value.getSalary()+",`start`="+value.getStart()+"WHERE `id`="+key;
+        String updateQuery = "UPDATE employee_payroll set `name`='"+value.getName()+"',`salary`='"+value.getSalary()+"',`start`='"+value.getStart()+"'WHERE `id`="+key;
         try{
             executeUpdate(updateQuery);
         }catch (Exception e){

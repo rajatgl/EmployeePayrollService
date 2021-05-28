@@ -44,6 +44,13 @@ public class Main {
         for (Employee employee: employees) {
             System.out.println(employee.toString());
         }
-        
+
+        //update employee salary
+        employeeTable.update(1,new Employee("Rajat",30000,date("2021-05-26")));
+        employees = employeeTable.retrieve(1);
+        for (Employee employee: employees) {
+            System.out.println(employee.toString());
+        }
+
     }
 }
