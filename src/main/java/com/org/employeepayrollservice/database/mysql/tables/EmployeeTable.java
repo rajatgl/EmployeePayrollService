@@ -56,6 +56,17 @@ public class EmployeeTable extends MySqlUtils<Employee> implements ICrud<Employe
         }
     }
 
+    public List<Employee> retrieveAll(){
+        List<Employee> employees = new ArrayList<Employee>();
+        String selectQuery = "select * from employee_payroll";
+        try{
+            employees = executeQuery(selectQuery);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return employees;
+    }
+
     public List<Employee> retrieve(int key){
         List<Employee> employees = new ArrayList<Employee>();
         String selectQuery = "select * from employee_payroll where `id`="+key;
@@ -89,6 +100,14 @@ public class EmployeeTable extends MySqlUtils<Employee> implements ICrud<Employe
         String updateSalary = "UPDATE employee_payroll set `salary`='"+salary+"'WHERE `id`="+key;
         try{
             executeUpdate(updateSalary);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateSalaryUsingPreparedStatement(int key,double salary){
+        try{
+            updateSalary(salary,key);
         }catch(Exception e){
             e.printStackTrace();
         }

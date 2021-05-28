@@ -48,6 +48,25 @@ public abstract class MySqlUtils<T> {
         return isSuccessful;
     }
 
+    protected Integer updateSalary(double salary, int key) throws SQLException {
+        Integer isSuccessful = 0;
+        Connection connection = MySqlConfig.getMySqlInstance().getSqlConnection("root","password120596");
+        try{
+            String query ="Update employee_payroll set basic_pay=? where Id=?";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setDouble(1,salary);
+            stmt.setInt(2,key);
+            try{
+                isSuccessful = stmt.executeUpdate();
+            }finally {
+                stmt.close();
+            }
+        }finally {
+            connection.close();
+        }
+        return isSuccessful;
+    }
+
     /**
      *
      * @param query to be executed [belongs to DQL]

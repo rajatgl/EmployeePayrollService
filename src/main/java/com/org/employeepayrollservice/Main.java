@@ -40,7 +40,7 @@ public class Main {
         employeeTable.create(employee1);
 
         //read all employees onto the console
-        List<Employee> employees = employeeTable.retrieve(1);
+        List<Employee> employees = employeeTable.retrieveAll();
         for (Employee employee: employees) {
             System.out.println(employee.toString());
         }
@@ -52,5 +52,11 @@ public class Main {
             System.out.println(employee.toString());
         }
 
+        //update salary using prepared statement
+        employeeTable.updateSalary(1,50000);
+        employees = employeeTable.retrieve(1);
+        for (Employee employee: employees) {
+            System.out.println(employee.toString());
+        }
     }
 }
