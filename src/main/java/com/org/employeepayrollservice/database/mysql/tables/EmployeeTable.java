@@ -84,4 +84,13 @@ public class EmployeeTable extends MySqlUtils<Employee> implements ICrud<Employe
             e.printStackTrace();
         }
     }
+
+    public void updateSalary(int key, double salary){
+        String updateSalary = "UPDATE employee_payroll set `salary`='"+salary+"'WHERE `id`="+key;
+        try{
+            executeUpdate(updateSalary);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
