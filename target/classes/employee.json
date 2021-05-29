@@ -1,0 +1,29 @@
+{
+  "Payroll": [
+    {
+      "name": "Rajat G.L.",
+      "salary": 50000,
+      "start":"2021-05-26"
+    },
+    {
+      "name": "Sanjay",
+      "salary": 20000,
+      "start":"2021-05-27"
+    },
+    {
+      "name": "Royle",
+      "salary": 110000,
+      "start":"2021-05-28"
+    },
+    {
+      "name": "Zorro",
+      "salary": 50000,
+      "start":"2021-05-26"
+    },
+    {
+      "name": "Dane",
+      "salary": 50000,
+      "start":"2021-05-26"
+    }
+  ]
+}

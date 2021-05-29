@@ -96,6 +96,15 @@ public class EmployeeTable extends MySqlUtils<Employee> implements ICrud<Employe
         }
     }
 
+    public void deleteAll(){
+        String deleteAllQuery = "DELETE FROM employee_payroll";
+        try{
+            executeUpdate(deleteAllQuery);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
     public void updateSalary(int key, double salary){
         String updateSalary = "UPDATE employee_payroll set `salary`='"+salary+"'WHERE `id`="+key;
         try{
@@ -112,4 +121,16 @@ public class EmployeeTable extends MySqlUtils<Employee> implements ICrud<Employe
             e.printStackTrace();
         }
     }
+
+    //retrieve count
+    public int countRecords(){
+        int count=0;
+        try{
+            count = recordCount();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return count;
+    }
+
 }

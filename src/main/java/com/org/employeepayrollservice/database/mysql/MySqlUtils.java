@@ -94,6 +94,29 @@ public abstract class MySqlUtils<T> {
         return list;
     }
 
+    protected int recordCount() throws SQLException {
+        int count =0;
+        Connection connection = MySqlConfig.getMySqlInstance().getSqlConnection("root","password120596");
+        try{
+            Statement stmt = connection.createStatement();
+            try{
+                String query = "select count(*) as EMPLOYEE_COUNT from employee_payroll";
+                ResultSet resultSet = stmt.executeQuery(query);
+                try{
+                    while (resultSet.next())
+                        count = resultSet.getInt("EMPLOYEE_COUNT");
+                }finally {
+                    resultSet.close();
+                }
+            }finally {
+                stmt.close();
+            }
+        }finally {
+            connection.close();
+        }
+        return count;
+    }
+
     protected abstract List<T> collectData(ResultSet resultSet) throws SQLException;
 
 }
